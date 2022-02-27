@@ -1,7 +1,7 @@
 ![Alt text](./Screenshot.png "webpage screenshot!")
 
-a simple page showing a countdown before a website goes online
+A simple page showing a countdown before a website goes online
 
-to use as placeholder for your next project!
+To use as placeholder for your next project! You can use it wherever you want! (just mention me :D)
 
 > Fully working

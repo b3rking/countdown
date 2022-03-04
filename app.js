@@ -1,97 +1,23 @@
-// console.log(Math.floor((((((deadline - now) / 1000) / 3600) / 24) / 7) / 4));
+var countDownDate = new Date("Mar 5, 2022 15:37:25").getTime();
 
-// new instance of the date which correspond to the present time
-let _now = new Date();
-// set a new dead line by changing this line bellow
-let _dead_line = new Date("5-30-2022"); // paramenters are (month-day-year)
+// Update the count down every 1 second
+var x = setInterval(function() {
 
-/**
- *
- * @param {*} now
- * @param {*} dead_line
- * @returns
- */
-const validDeadline = (now, dead_line) => {
-    if (now < dead_line) {
-        return true;
-    } else {
-        return false;
-    }
-};
+    // Get today's date and time
+    var now = new Date().getTime();
 
-/**
- *
- * @param {*} now
- * @param {*} dead_line
- * @returns
- */
-const getSeconds = (now, dead_line) => {
-    if (validDeadline(now, dead_line)) {
-        return Math.floor((dead_line - now) / 1000);
-    } else {
-        alert("invalid deadline value");
-    }
-};
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
 
-/**
- *
- * @param {*} now
- * @param {*} dead_line
- * @returns
- */
-const getMinutes = (now, dead_line) => {
-    if (validDeadline(now, dead_line)) {
-        return Math.floor((dead_line - now) / 1000 / 60);
-    } else {
-        alert("invalid deadline value");
-    }
-};
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-/**
- *
- * @param {*} now
- * @param {*} dead_line
- * @returns
- */
-const getHours = (now, dead_line) => {
-    if (validDeadline(now, dead_line)) {
-        return Math.floor((dead_line - now) / 1000 / 60 / 3600);
-    } else {
-        alert("invalid deadline value");
-    }
-};
+    document.querySelector("#days").textContent = days;
+    document.querySelector("#hours").textContent = hours;
+    document.querySelector("#minutes").textContent = minutes;
+    document.querySelector("#seconds").textContent = seconds;
 
-/**
- *
- * @param {*} now
- * @param {*} dead_line
- * @returns
- */
-const getDays = (now, dead_line) => {
-    if (validDeadline(now, dead_line)) {
-        return Math.floor((dead_line - now) / 1000 / 60 / 3600 / 24);
-    } else {
-        alert("invalid deadline value");
-    }
-};
-
-/**
- * =============================================>
- */
-const show_time = () => {
-    const days = document.querySelector("#days");
-    const hours = document.querySelector("#hours");
-    const minutes = document.querySelector("#minutes");
-    const seconds = document.querySelector("#seconds");
-
-    setInterval(() => {
-        days.textContent = new Date().getDay();
-        hours.textContent = new Date().getHours();
-        minutes.textContent = new Date().getMinutes();
-        seconds.textContent = new Date().getSeconds();
-    }, 1000);
-};
-
-// run everything
-
-show_time();
+})

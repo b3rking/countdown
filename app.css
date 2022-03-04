@@ -86,3 +86,26 @@ h3 {
 .banner__body__footer {
     margin-top: 8.5rem;
 }
+
+@media (max-width: 425px) {
+    .banner {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 375px) {
+    .banner {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 320px) {
+    .banner__body__countdown {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .banner__body {
+        margin-top: 6rem;
+    }
+}
